@@ -37,7 +37,7 @@ def driver():
 # TC 1: Homepage loads successfully
 def test_homepage_loads():
     driver = create_driver()
-    driver.get("http://localhost:8000")
+    driver.get("http://localhost:8001")
     assert "Bank" in driver.page_source
     driver.quit()
 
@@ -45,7 +45,7 @@ def test_homepage_loads():
 # TC 2: Successful login with correct credentials (Positive)
 def test_login_success():
     driver = create_driver()
-    driver.get("http://localhost:8000")
+    driver.get("http://localhost:8001")
     time.sleep(2)
 
     driver.find_element(By.XPATH, "//input[@type='email']").send_keys("jawadidrees822@gmail.com")
@@ -60,7 +60,7 @@ def test_login_success():
 # TC 3: Login fails with incorrect password (Negative)
 def test_login_fail_wrong_password():
     driver = create_driver()
-    driver.get("http://localhost:8000")
+    driver.get("http://localhost:8001")
     time.sleep(2)
 
     driver.find_element(By.XPATH, "//input[@type='email']").send_keys("jawadidrees822@gmail.com")
@@ -75,7 +75,7 @@ def test_login_fail_wrong_password():
 # TC 4: Login fails with empty username (Negative)
 def test_login_empty_username():
     driver = create_driver()
-    driver.get("http://localhost:8000")
+    driver.get("http://localhost:8001")
     time.sleep(2)
 
     driver.find_element(By.XPATH, "//input[@type='password']").send_keys("pass123")
@@ -90,7 +90,7 @@ def test_login_empty_username():
 # TC 5: Sign up fails short password (Negative)
 def test_signup_short_password():
     driver = create_driver()
-    driver.get("http://localhost:8000/signup?")
+    driver.get("http://localhost:8001/signup?")
     time.sleep(2)
 
     driver.find_element(By.ID, "username").send_keys("validuser")
@@ -109,7 +109,7 @@ def test_signup_with_duplicate_email_and_login_failure():
     driver = create_driver()
 
     # 1. Sign up with an email that already exists (should appear successful but silently fail)
-    driver.get("http://localhost:8000/signup?")
+    driver.get("http://localhost:8001/signup?")
     time.sleep(2)
     driver.find_element(By.ID, "username").clear()
     driver.find_element(By.ID, "email").clear()
@@ -124,7 +124,7 @@ def test_signup_with_duplicate_email_and_login_failure():
     time.sleep(3)  # Wait for navigation or form submission to complete
 
     # 2. Try to login with the duplicate credentials (should fail)
-    driver.get("http://localhost:8000")
+    driver.get("http://localhost:8001")
     time.sleep(2)
     driver.find_element(By.XPATH, "//input[@type='email']").send_keys("jawadidrees822@gmail.com")
     driver.find_element(By.XPATH, "//input[@type='password']").send_keys("securepass")
@@ -142,7 +142,7 @@ def test_signup_with_duplicate_email_and_login_failure():
 # TC 7: Sign up fails invalid email (Negative)
 def test_signup_invalid_email():
     driver = create_driver()
-    driver.get("http://localhost:8000/signup?")
+    driver.get("http://localhost:8001/signup?")
 
     driver.find_element(By.ID, "username").send_keys("validuser")
     driver.find_element(By.ID, "email").send_keys("invalid-email")
@@ -157,7 +157,7 @@ def test_signup_invalid_email():
 # TC 8 Balance is Zero for first time sign in
 def login(driver, email, password):
     #driver = create_driver()
-    driver.get("http://localhost:8000/signin")
+    driver.get("http://localhost:8001/signin")
     time.sleep(1)
     driver.find_element(By.XPATH, "//input[@type='email']").send_keys(email)
     driver.find_element(By.XPATH, "//input[@type='password']").send_keys(password)
@@ -209,7 +209,7 @@ def test_username_appears_on_homepage_after_signup(driver):
     password = "StrongPass123"
 
     # --- Sign Up ---
-    driver.get("http://localhost:8000/signup?")
+    driver.get("http://localhost:8001/signup?")
     time.sleep(1)
     driver.find_element(By.ID, "username").send_keys(username)
     driver.find_element(By.ID, "email").send_keys(email)
@@ -219,7 +219,7 @@ def test_username_appears_on_homepage_after_signup(driver):
     time.sleep(2)
 
     # --- Sign In ---
-    driver.get("http://localhost:8000")
+    driver.get("http://localhost:8001")
     time.sleep(1)
     driver.find_element(By.XPATH, "//input[@type='email']").send_keys(email)
     driver.find_element(By.XPATH, "//input[@type='password']").send_keys(password)
