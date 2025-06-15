@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build: .  # Builds using Dockerfile in current directory
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./app:/app  # Mounts host directory to container
