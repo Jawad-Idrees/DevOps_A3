@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   fastapi:
-    container_name: app_testing:latest
+    container_name: apptesting
     build: .  # Builds using Dockerfile in current directory
     ports:
       - "8001:8001"
