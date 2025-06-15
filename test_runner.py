@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Run pytest on test_cases.py
     result_file = "result.txt"
     with open(result_file, "w") as f:
-        subprocess.run(["python", "-m", "pytest", "test.py"], stdout=f, text=True)
+        subprocess.run(["python3", "-m", "pytest", "test.py"], stdout=f, text=True)
 
     # Read the result
     with open(result_file, "r") as f:
