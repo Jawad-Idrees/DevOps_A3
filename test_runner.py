@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # Send the email
     sender_email = "jawadidrees822@gmail.com"
     sender_password = "auvd ywth flzk uguu"
-    recipient_email = "jwdidrees@gmail.com"
+    recipient_email = "qasimalik@gmail.com"
 
     send_email(
         subject="Automated Test Report",
